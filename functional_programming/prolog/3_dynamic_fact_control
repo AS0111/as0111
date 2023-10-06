@@ -1,5 +1,4 @@
 % Ханойские башни
-
 tell(X, Y) :- write([move, disk, from, pin, X, on, pin, Y]), nl.
 
 move(0, _, _, _) :- !.
