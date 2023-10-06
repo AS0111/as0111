@@ -2,10 +2,6 @@
 tell(X, Y) :- write([move, disk, from, pin, X, on, pin, Y]), nl.
 
 move(0, _, _, _) :- !.
-move(N, A, B, C) :-
-    M is N-1,
-    move(M, A, C, B),
-    tell(A, B),
-    move(M, C, B, A).
+move(N, A, B, C) :- M is N-1, move(M, A, C, B), tell(A, B), move(M, C, B, A).
     
 hanoy(N) :- move(N, L, M, R).
