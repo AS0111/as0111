@@ -1,0 +1,29 @@
+father(Paul, Victor).
+father(Paul, Elena).
+father(Vladislav, Paul).
+
+mother(Svetlana, Victor).
+mother(Svetlana, Elena).
+
+man(Victor).
+man(Paul).
+man(Vladislav).
+
+woman(Svetlana).
+woman(Elena).
+
+parent(Svetlana, Victor).
+parent(Paul, Victor).
+parent(Svetlana, Elena).
+parent(Paul, Elena).
+parent(Vladislav, Paul).
+
+different(X, Y).
+
+
+is_mother(X) :- mother(X, _).
+is_father(X) :- father(X, _).
+is_son(X) :- parent(_, X), man(X).
+is_sister(X, Y) :- woman(X), parent(Z, X), parent(Z, Y), X \= Y.
+grandfather(X, Y) :- man(X), father(X, Z), parent(Z, Y).
+common_parents(X, Y) :- mother(Z, X), mother(Z, Y), father(T, X), father(T, Y).
