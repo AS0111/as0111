@@ -130,5 +130,4 @@
       (alter player/*current-room* (constantly hall-room))
       (alter player/*inventory* conj spirit-character)
       (alter (:inhabitants hall-room) conj (:name spirit-character)))
-    (str "You have entered the kitchen and encountered a spirit!\n"
-         "Prepare for battle!\n")))
+    (str "The spirit decides to attack!\n")))
