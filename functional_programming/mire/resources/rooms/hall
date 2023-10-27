@@ -1,4 +1,5 @@
-{:desc "You find yourself in a room with a round table in the middle."
+{:desc "Moonlight shines through the curtained windows of the spacious room.
+In the far corner you notice a slight flicker framing the silhouette..."
  :exits {:west :promenade :east :hallway}
  :items #{:keys}
  :monster :troll}
