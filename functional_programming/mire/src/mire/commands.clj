@@ -131,3 +131,12 @@
       (alter player/*inventory* conj spirit-character)
       (alter (:inhabitants hall-room) conj (:name spirit-character)))
     (str "The spirit decides to attack!\n")))
+
+(defn sword-att
+  "If you have the sword, you can attack spirit."
+  [item]
+  (if (@player/*inventory* :sword)
+    (
+     
+    )
+    "You need to be carrying the sword for that."))
