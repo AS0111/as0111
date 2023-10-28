@@ -2,4 +2,4 @@
 In the far corner you notice a slight flicker framing the silhouette..."
  :exits {:west :promenade :east :hallway}
  :items #{:ring}
- :ghost {:spirit}}
+ :ghost :spirit}
