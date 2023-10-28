@@ -38,7 +38,7 @@
        (commute (:inhabitants @player/*current-room*) conj player/*name*)
        (commute player/streams assoc player/*name* *out*))
 
-      (println "create-character: " (player/create-character player/*name* 10))
+      (println "create-character: " (player/create-character player/*name* 1))
 
       ;;(player/game-logic config)
 
