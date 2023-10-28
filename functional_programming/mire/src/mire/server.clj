@@ -40,9 +40,6 @@
 
       (println "create-character: " (player/create-character player/*name* 1))
 
-      ;;(player/game-logic config)
-
-
       (println (commands/look)) (print player/prompt) (flush)
 
       (try (loop [input (read-line)]
