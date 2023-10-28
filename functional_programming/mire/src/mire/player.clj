@@ -49,9 +49,7 @@
 
 (defn take-damage
   [from to]
-  (let [bd (calc-base-damage (:att from) (:def to))
-        s (calc-sides (:lvl from))
-        rd (real-damage bd s)]
+  (let [rd (:att from)]
     [rd (update-in to [:hp] #(- % rd))]))
 
 (def player (create-character "you" 6))
