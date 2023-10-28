@@ -64,7 +64,7 @@
   " %s received %d damage.
   his new life is %d")
 
-(defn print-battle-log
+(defn print-attack-log
   [damage character]
   (let [name (:name character)
         newhp (:hp character)
