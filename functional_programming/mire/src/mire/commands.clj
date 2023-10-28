@@ -39,7 +39,7 @@
          (ref-set player/*current-room* target)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
          
-         (if (@player/*current-room* :hall)
+         (if (target :hall)
            (do
              (player/game-logic config)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
