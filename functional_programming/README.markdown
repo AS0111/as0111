@@ -2,7 +2,7 @@
 https://github.com/AS0111/as0111/edit/main/functional_programming/clojure_koans
 <h1>Prolog</h1>
 https://github.com/AS0111/as0111/edit/main/functional_programming/prolog
-<h1>Проект Mire</h1>
+<h1>Mire</h1>
 Задачи:
 1) Добавить функционал
 2) Написать бота на логическом ЯП Prolog для имитации игрока
