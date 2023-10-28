@@ -6,13 +6,13 @@
 
 (defn calc-attack
   [lvl]
-  (* lvl 5))
+  (* lvl 10))
 (defn calc-defence
   [lvl]
-  (int (* lvl 1.6)))
+  (int (* lvl 5)))
 (defn calc-hitpoints
   [lvl]
-  (* lvl 10))
+  (* lvl 100))
 
 (defn calc-sides
   [lvl]
@@ -51,13 +51,13 @@
   [from to]
   (let [bd (calc-base-damage (:att from) (:def to))
         s (calc-sides (:lvl from))
-        rd (real-damage bd s)]
+        rd (:att from)]
     [rd (update-in to [:hp] #(- % rd))]))
 
 
 
-(def player (create-character "you" 6))
-(def spirit (create-character "spirit" 4))
+(def player (create-character "you" 1))
+(def spirit (create-character "spirit" 5))
 
 
 
