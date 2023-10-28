@@ -14,18 +14,12 @@
   [lvl]
   (* lvl 100))
 
-(defn calc-sides
-  [lvl]
-  (if (> lvl 5) 4 6))
 (defn kill-negative
   [n]
   (if (neg? n) 0 n))
 (defn calc-base-damage
   [att def]
   (kill-negative (- att def)))
-(defn roll-dice
-  [sides]
-  (inc (rand-int sides)))
 
 (defn create-character
   [name lvl]
@@ -39,9 +33,7 @@
 
 (defn take-damage
   [from to]
-  (let [bd (calc-base-damage (:att from) (:def to))
-        s (calc-sides (:lvl from))
-        rd (:att from)]
+  (let [rd (:att from)]
     [rd (update-in to [:hp] #(- % rd))]))
 
 
