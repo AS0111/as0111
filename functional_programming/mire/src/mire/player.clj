@@ -49,8 +49,12 @@
 
 (defn take-damage
   [from to]
-  (let [rd (:att from)]
-    [rd (update-in to [:hp] #(- % rd))]))
+  (let [bd (calc-base-damage (:att from) (:def to))
+        s (calc-sides (:lvl from))
+        rd (:att from)]
+    [rd (update-in to [:hp] #(- rd))]))
+
+
 
 (def player (create-character "you" 6))
 (def spirit (create-character "spirit" 4))
