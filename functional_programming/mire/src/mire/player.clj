@@ -14,13 +14,6 @@
   [lvl]
   (* lvl 100))
 
-(defn kill-negative
-  [n]
-  (if (neg? n) 0 n))
-(defn calc-base-damage
-  [att def]
-  (kill-negative (- att def)))
-
 (defn create-character
   [name lvl]
   {
@@ -45,7 +38,7 @@
 
 (def log-template
   " %s received %d damage.
-  Spirit hp = %d")
+  his hp = %d")
 
 (defn print-attack-log
   [damage character]
@@ -57,7 +50,7 @@
 (defn print-winner
   [p-hp e-hp]
   (if (<= p-hp 0)
-    (println "Spirit win...")
+    (println "Spirit win")
     (println "You win!(lvl+1)")))
 
 (defn game-logic
