@@ -1,4 +1,4 @@
-<h1>Clojure-koans</h1>
+# Clojure-koans
 https://github.com/AS0111/as0111/edit/main/functional_programming/clojure_koans
 <h1>Prolog</h1>
 https://github.com/AS0111/as0111/edit/main/functional_programming/prolog
@@ -10,7 +10,7 @@ https://github.com/AS0111/as0111/edit/main/functional_programming/prolog
 Реализация дополнительного функционала:
 
 <p align="center">
-   <img src="https://github.com/AS0111/as0111/edit/main/functional_programming/mire/src/img/mire.png">
+   <img src="/mire/src/img/mire.png">
 </p>
 
 1) Добавлена комната hall и ее описание
