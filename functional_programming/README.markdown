@@ -9,7 +9,7 @@ https://github.com/AS0111/as0111/edit/main/functional_programming/prolog
 
 Реализация дополнительного функционала:
 
-<img src="https://github.com/AS0111/as0111/edit/main/functional_programming/mire/src/img/mire.png">
+<a><img src="https://github.com/AS0111/as0111/edit/main/functional_programming/mire/src/img/mire.png"></a>
 
 1) Добавлена комната hall и ее описание
    
