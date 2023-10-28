@@ -40,7 +40,7 @@
          
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
          
-         (if (true)
+         (if (player/*current-room* :hall)
            (do
              (player/game-logic config)))
          
