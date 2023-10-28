@@ -37,16 +37,6 @@
    :hp (calc-hitpoints lvl)
    })
 
-
-(defn real-damage
-  [base sides]
-  (let [rd (roll-dice sides)
-        s (/ sides 2)]
-    (cond
-      (<= rd s) (int (/ base 2))
-      (> rd s) base
-      (= rd sides) (* base 2))))
-
 (defn take-damage
   [from to]
   (let [bd (calc-base-damage (:att from) (:def to))
@@ -75,8 +65,8 @@
 (defn print-winner
   [p-hp e-hp]
   (if (<= p-hp 0)
-    (println "Enemy won...")
-    (println "You won!(lvl+1)")))
+    (println "Spirit win...")
+    (println "You win!(lvl+1)")))
 
 (defn game-logic
   [config]
