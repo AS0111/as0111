@@ -49,7 +49,7 @@
                             (:items @player/*current-room*)
                             player/*inventory*)
          (str "You picked up the " thing ".")
-         if (compare ("thing") ("sword"))
+         if (@player/*inventory* :sword)
            (str "Sword!")
      (str "There isn't any " thing " here."))))
 
