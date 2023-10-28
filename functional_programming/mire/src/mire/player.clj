@@ -50,7 +50,7 @@
 (defn take-damage
   [from to]
   (let [
-        rd ((:att from))]
+        rd (:att from)]
     [rd (update-in to [:hp] #(- % rd))]))
 
 (def player (create-character "you" 6))
