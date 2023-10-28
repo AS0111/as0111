@@ -48,7 +48,7 @@
      (do (move-between-refs (keyword thing)
                             (:items @player/*current-room*)
                             player/*inventory*)
-         (str "You picked up the " thing ".")
+         (str "You picked up the " thing "."))
      (str "There isn't any " thing " here."))))
 
 (defn discard
