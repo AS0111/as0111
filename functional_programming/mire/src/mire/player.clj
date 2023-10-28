@@ -42,7 +42,7 @@
 (defn take-damage
   [from to]
   (let [bd (calc-base-damage (:att from) (:def to))
-        (= rd (:att from))]
+        (= rd 20)]
     [rd (update-in to [:hp] #(- % rd))]))
 
 
