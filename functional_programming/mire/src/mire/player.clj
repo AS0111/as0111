@@ -6,14 +6,14 @@
 
 (defn calc-attack
   [lvl]
-  (* lvl 6))
+  (* lvl 5))
 (defn calc-defence
   [lvl]
-  (int (* lvl 1.4)))
-
+  (int (* lvl 1.6)))
 (defn calc-hitpoints
   [lvl]
-  (* lvl 20))
+  (* lvl 10))
+
 (defn calc-sides
   [lvl]
   (if (> lvl 5) 4 6))
@@ -36,7 +36,6 @@
    :def (calc-defence lvl)
    :hp (calc-hitpoints lvl)
    })
-
 
 (defn real-damage
   [base sides]
@@ -76,7 +75,7 @@
   [p-hp e-hp]
   (if (<= p-hp 0)
     (println "Enemy won...")
-    (println "You won!!!")))
+    (println "You won!(lvl+1)")))
 
 (defn game-logic
   [config]
@@ -89,9 +88,10 @@
       (let [pl->en (take-damage player enemy)
             en->pl (take-damage enemy player)]
         (do (println (str "Round " round ":"))
-            (print-battle-log (pl->en 0) (pl->en 1))
-            (print-battle-log (en->pl 0) (en->pl 1))
+            (print-attack-log (pl->en 0) (pl->en 1))
+            (print-attack-log (en->pl 0) (en->pl 1))
             (recur (en->pl 1) (pl->en 1) (inc round)))))))
+
 (def prompt "> ")
 (def streams (ref {}))
 
