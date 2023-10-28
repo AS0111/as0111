@@ -37,12 +37,12 @@
                             (:inhabitants @player/*current-room*)
                             (:inhabitants target))
          (ref-set player/*current-room* target)
-         (if (:hall @player/*current-room*)
+         (if (@player/*current-room* :hall)
           
              
              (player/game-logic config))
          (look)
-         ;;(attack-spirit)
+         
        "You can't go that way."))))
 
 (defn grab
