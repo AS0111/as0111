@@ -38,9 +38,9 @@
                             (:inhabitants target))
          (ref-set player/*current-room* target)
          (if (@player/*current-room* :hall)
-          
+            (do 
              
-             (player/game-logic config))
+             (player/game-logic config)))
          (look)
          
        "You can't go that way."))))
