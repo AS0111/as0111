@@ -1,8 +1,10 @@
-# Clojure-koans
+# 1. Clojure-koans
 https://github.com/AS0111/as0111/edit/main/functional_programming/clojure_koans
-<h1>Prolog</h1>
+
+# 2. Prolog
 https://github.com/AS0111/as0111/edit/main/functional_programming/prolog
-<h1>Mire</h1>
+
+# 3. Mire
 Задачи:
 1) Добавить функционал
 2) Написать бота на логическом ЯП Prolog для имитации игрока
@@ -26,7 +28,7 @@ In the far corner you notice a slight flicker framing the silhouette..."
 
 https://github.com/AS0111/as0111/edit/main/functional_programming/mire
 
-<h1>Исполнитель</h1>
+# Исполнитель
 
 
 Слесаренко А., 4ИТ/2
