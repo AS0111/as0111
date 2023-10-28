@@ -37,20 +37,12 @@
    :hp (calc-hitpoints lvl)
    })
 
-(defn real-damage
-  [base sides]
-  (let [rd (roll-dice sides)
-        s (/ sides 2)]
-    (cond
-      (<= rd s) (int (/ base 2))
-      (> rd s) base
-      (= rd sides) (* base 2))))
+
 
 (defn take-damage
   [from to]
   (let [bd (calc-base-damage (:att from) (:def to))
-        s (calc-sides (:lvl from))
-        rd (real-damage bd s)]
+        (= rd (:att from))]
     [rd (update-in to [:hp] #(- % rd))]))
 
 
