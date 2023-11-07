@@ -53,8 +53,15 @@ module.exports.bot = async (event) => {
   link[0] = 'https://storage.yandexcloud.net/img-bot/smart-bot/1.jpg';
   link[1] = 'https://storage.yandexcloud.net/img-bot/smart-bot/2.jpg';
   link[2] = 'https://storage.yandexcloud.net/img-bot/smart-bot/3.jpg';
+  link[3] = 'https://storage.yandexcloud.net/img-bot/smart-bot/4.jpg';
+  link[4] = 'https://storage.yandexcloud.net/img-bot/smart-bot/5.jpg';
+  link[5] = 'https://storage.yandexcloud.net/img-bot/smart-bot/6.jpg';
+  link[6] = 'https://storage.yandexcloud.net/img-bot/smart-bot/7.jpg';
+  link[7] = 'https://storage.yandexcloud.net/img-bot/smart-bot/8.jpg';
+  link[8] = 'https://storage.yandexcloud.net/img-bot/smart-bot/9.jpg';
+  link[9] = 'https://storage.yandexcloud.net/img-bot/smart-bot/10.jpg';
 
-  let a = random(0,2);
+  let a = random(0,9);
 
   if (getTrigger(userMsg)) {
     botMsg = await getData(api);
