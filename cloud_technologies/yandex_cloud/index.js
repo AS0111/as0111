@@ -2,15 +2,7 @@ const fetch = require('node-fetch');
 const { random, includes } = require('lodash');
 // API "умных мыслей":
 const api = `http://api.forismatic.com/api/1.0/?method=getQuote&format=json&key=${random(1, 999999)}&lang=ru`;
-// Страница для донатов (установите свою; опционально):
-const donateUrl = 'https://yasobe.ru/na/umnyemysli';
-// Скриншот страницы для донатов (загрузите на Yandex Object Storage и получите URL; опционально):
-const donateImgUrl = 'https://storage.yandexcloud.net/img-bucket/tg-bot-smart-thoughts/donate-min.png';
-// Страница навыка Алисы в официальном каталоге навыков (установите свою; опционально):
-const skillUrl = 'https://alice.ya.ru/s/f785af07-4578-4a6b-95ae-485bd803ae20';
-// Скриншот страницы навыка Алисы (загрузите на Yandex Object Storage и получите URL; опционально):
-const skillImgUrl = 'https://storage.yandexcloud.net/img-bucket/tg-bot-smart-thoughts/skill-min.png';
-
+const numapi = 'http://numbersapi.com/random?json'
 // Определение функции получения данных и возврат отформатированной цитаты:
 async function getData(url) {
   try {
@@ -24,11 +16,15 @@ async function getData(url) {
     return 'Мысль потеряна! Попробуй ещё раз.';
   }
 }
-
+async function getNum(url) {
+  const data = await fetch(url);
+  const json = await data.json();
+  const num = json.number;
+  return `${num}`;
+}
 // Определение функции поиска ключевых слов во фразе юзера:
 function getTrigger(str) {
-  const triggerWords = ['мысль', 'мысли', 'цитата', 'цитату', 'цитируй', 'процитируй', 'цитаты', 'цитирует',
-    'цитировать', 'процитирует', 'процитировать', 'изречение', 'изречения', 'мудрость', 'мудрости', 'мудрые',
+  const triggerWords = ['мысль', 'мысли', 'цитата', 'цитаты', 'изречение', 'изречения', 'мудрость', 'мудрости', 'мудрые',
     'мудрую', 'мудрое', 'высказывание', 'высказывания'];
   for (let item of triggerWords) {
     if (includes(str, item.toLowerCase())) {
@@ -38,48 +34,52 @@ function getTrigger(str) {
   return false;
 }
 
+
+
 // Яндекс-функция:
 module.exports.bot = async (event) => {
   const body = JSON.parse(event.body);
   const text = body.message.text;
-
+  
   const userMsg = text.toLowerCase();
   let botMsg;
   let photoUrl;
-  let redirectUrl;
+  let urlNum;
   let inlineKeyText;
-  let isPhoto = false;
   let msg = {};
+  let isPhoto = false;
+  
+  let link = [];
+  link[0] = 'https://storage.yandexcloud.net/img-bot/smart-bot/1.jpg';
+  link[1] = 'https://storage.yandexcloud.net/img-bot/smart-bot/2.jpg';
+  link[2] = 'https://storage.yandexcloud.net/img-bot/smart-bot/3.jpg';
+
+  let a = random(0,2);
 
   if (getTrigger(userMsg)) {
     botMsg = await getData(api);
   } else if (userMsg === '/start') {
-    botMsg = 'Нажми на кнопку "Умная мысль", чтобы получить её бесплатно.';
+    botMsg = 'Нажми на кнопку "Умная мысль", чтобы получить её.';
   } else if (userMsg === '/help') {
-    botMsg = 'Я поставляю умные мысли от умных людей! Нажимай на кнопку "Умная мысль", чтобы получать их бесплатно.';
-  } else if (userMsg === 'навык алисы') {
+    botMsg = 'Я поставляю умные мысли от умных людей! Нажимай на кнопку "Умная мысль", чтобы получать их.';
+  } else if (userMsg === 'умный котик') {
     isPhoto = true;
-    inlineKeyText = 'Послушай Умные Мысли от Алисы!';
-    photoUrl = skillImgUrl;
-    redirectUrl = skillUrl;
-  } else if (userMsg === 'кинуть монетку') {
-    isPhoto = true;
-    inlineKeyText = 'Проспонсируй немного Умные Мысли!';
-    photoUrl = donateImgUrl;
-    redirectUrl = donateUrl;
+    inlineKeyText = await getNum(numapi);
+    urlNum = 'http://numbersapi.com/'+inlineKeyText;
+    photoUrl = link[a];
   } else {
-    botMsg = 'Давай не будем отвлекаться. Просто нажимай кнопку "Умная мысль", и получай эти мысли бесплатно.';
+    botMsg = 'Давай не будем отвлекаться. Просто нажимай кнопку "Умная мысль", и получай эти мысли.';
   }
 
-  // Шлём скриншоты, с кнопкой перехода на заданный URL:
   if (isPhoto) {
     msg = {
       'method': 'sendPhoto',
       'photo': photoUrl,
       'chat_id': body.message.chat.id,
+      'text': botMsg,
       'reply_markup': JSON.stringify({
         inline_keyboard: [
-          [{ text: inlineKeyText, url: redirectUrl }]
+          [{ text: inlineKeyText, url: urlNum }]
         ]
       })
     };
@@ -94,13 +94,12 @@ module.exports.bot = async (event) => {
       'reply_markup': JSON.stringify({
         keyboard: [
           [{ text: 'Умная мысль' }],
-          [{ text: 'Навык Алисы' }],
-          [{ text: 'Кинуть монетку' }]
+          [{ text: 'Умный котик' }]
         ]
       })
     };
   }
-
+  
   // Возвращаем результат в Telegram:
   return {
     'statusCode': 200,
