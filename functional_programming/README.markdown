@@ -11,9 +11,9 @@ https://github.com/AS0111/as0111/edit/main/functional_programming/prolog
 
 Реализация дополнительного функционала:
 
-<p align="center">
-   <img src="/mire/src/img/mire.png">
-</p>
+
+   !(/mire/src/img/mire.png)
+
 
 1) Добавлена комната hall и ее описание
 <p align="center">
