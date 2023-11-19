@@ -48,18 +48,31 @@ module.exports.bot = async (event) => {
   let inlineKeyText;
   let msg = {};
   let isPhoto = false;
+  let isSpace = false;
   
   let link = [];
-  link[0] = 'https://storage.yandexcloud.net/img-bot/smart-bot/1.jpg';
-  link[1] = 'https://storage.yandexcloud.net/img-bot/smart-bot/2.jpg';
-  link[2] = 'https://storage.yandexcloud.net/img-bot/smart-bot/3.jpg';
-  link[3] = 'https://storage.yandexcloud.net/img-bot/smart-bot/4.jpg';
-  link[4] = 'https://storage.yandexcloud.net/img-bot/smart-bot/5.jpg';
-  link[5] = 'https://storage.yandexcloud.net/img-bot/smart-bot/6.jpg';
-  link[6] = 'https://storage.yandexcloud.net/img-bot/smart-bot/7.jpg';
-  link[7] = 'https://storage.yandexcloud.net/img-bot/smart-bot/8.jpg';
-  link[8] = 'https://storage.yandexcloud.net/img-bot/smart-bot/9.jpg';
-  link[9] = 'https://storage.yandexcloud.net/img-bot/smart-bot/10.jpg';
+  link[0] = 'https://storage.yandexcloud.net/img-bot2/smart-bot/1.jpg';
+  link[1] = 'https://storage.yandexcloud.net/img-bot2/smart-bot/2.jpg';
+  link[2] = 'https://storage.yandexcloud.net/img-bot2/smart-bot/3.jpg';
+  link[3] = 'https://storage.yandexcloud.net/img-bot2/smart-bot/4.jpg';
+  link[4] = 'https://storage.yandexcloud.net/img-bot2/smart-bot/5.jpg';
+  link[5] = 'https://storage.yandexcloud.net/img-bot2/smart-bot/6.jpg';
+  link[6] = 'https://storage.yandexcloud.net/img-bot2/smart-bot/7.jpg';
+  link[7] = 'https://storage.yandexcloud.net/img-bot2/smart-bot/8.jpg';
+  link[8] = 'https://storage.yandexcloud.net/img-bot2/smart-bot/9.jpg';
+  link[9] = 'https://storage.yandexcloud.net/img-bot2/smart-bot/10.jpg';
+
+  let space = [];
+  space[0] = 'https://cloud.mail.ru/public/38mQ/kMZroZ23Z/1.jpg';
+  space[1] = 'https://cloud.mail.ru/public/38mQ/kMZroZ23Z/2.jpg';
+  space[2] = 'https://cloud.mail.ru/public/38mQ/kMZroZ23Z/3.jpg';
+  space[3] = 'https://cloud.mail.ru/public/38mQ/kMZroZ23Z/4.jpg';
+  space[4] = 'https://cloud.mail.ru/public/38mQ/kMZroZ23Z/5.jpg';
+  space[5] = 'https://cloud.mail.ru/public/38mQ/kMZroZ23Z/6.jpg';
+  space[6] = 'https://cloud.mail.ru/public/38mQ/kMZroZ23Z/7.jpg';
+  space[7] = 'https://cloud.mail.ru/public/38mQ/kMZroZ23Z/8.jpg';
+  space[8] = 'https://cloud.mail.ru/public/38mQ/kMZroZ23Z/9.jpg';
+  space[9] = 'https://cloud.mail.ru/public/38mQ/kMZroZ23Z/10.jpg';
 
   let a = random(0,9);
 
@@ -74,6 +87,9 @@ module.exports.bot = async (event) => {
     inlineKeyText = await getNum(numapi);
     urlNum = 'http://numbersapi.com/'+inlineKeyText;
     photoUrl = link[a];
+  } else if (userMsg === 'просто космос') {
+    isSpace = true;
+    photoUrl = space[a];
   } else {
     botMsg = 'Давай не будем отвлекаться. Просто нажимай кнопку "Умная мысль", и получай эти мысли.';
   }
@@ -90,6 +106,14 @@ module.exports.bot = async (event) => {
         ]
       })
     };
+  } else if (isSpace) {
+    msg = {
+      'method': 'sendPhoto',
+      'photo': photoUrl,
+      'chat_id': body.message.chat.id,
+      'text': botMsg
+      
+    };
   } else {
     // Шлём текстовое сообщение:
     msg = {
@@ -101,7 +125,8 @@ module.exports.bot = async (event) => {
       'reply_markup': JSON.stringify({
         keyboard: [
           [{ text: 'Умная мысль' }],
-          [{ text: 'Умный котик' }]
+          [{ text: 'Умный котик' }],
+          [{ text: 'Просто космос' }]
         ]
       })
     };
