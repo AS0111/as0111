@@ -9,7 +9,7 @@
 (use-fixtures :each room-fixture)
 
 (deftest test-set-rooms
-  (doseq [name [:start :closet :hallway :promenade]]
+  (doseq [name [:start :closet :hallway :promenade :hall]]
     (is (contains? @rooms name)))
   (is (re-find #"promenade" (:desc (:promenade @rooms))))
   (is (= :hallway (:west @(:exits (:promenade @rooms)))))
