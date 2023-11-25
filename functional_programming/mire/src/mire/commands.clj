@@ -28,6 +28,16 @@
       (alter (:inhabitants hall-room) conj (:name spirit-character)))
     (str "The spirit decides to attack!\n")))
 
+(defn swordatt
+  "If you have the sword, you can attack spirit."
+  []
+  (if (@player/*inventory* :sword)
+    (let [
+  ;;player/*att*(+ player/*att* 240)
+          ]
+    "+ 240 att"
+    )))
+
 
 (def config
   {:player player/player
@@ -48,7 +58,7 @@
          
          (if (rooms/room-contains? @player/*current-room* :ring)
              (do
-               (attack-spirit)
+               (swordatt)
                (player/game-logic config)))
          (look)
          )
