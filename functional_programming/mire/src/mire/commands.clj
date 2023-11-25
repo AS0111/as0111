@@ -39,7 +39,7 @@
          (ref-set player/*current-room* target)
          
 
-         (commands/attack-spirit[] config)
+         (commands/attack-spirit [])
          (player/game-logic config)
          
 
