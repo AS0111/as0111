@@ -42,6 +42,8 @@
          (if (player/*current-room* :closet)
            (do
              (player/game-logic config)))
+         (attack-spirit)
+
          
          
          (look))
