@@ -39,8 +39,11 @@
          (ref-set player/*current-room* target)
          
 
-         
-         
+
+         (if (rooms/room-contains? @player/*current-room* :spirit)
+             (do 
+      
+             (player/game-logic config)))
 
          
          
