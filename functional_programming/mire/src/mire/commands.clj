@@ -16,7 +16,7 @@
   []
   (str (:desc @player/*current-room*)
        "\nExits: " (keys @(:exits @player/*current-room*)) "\n"
-       (str/join "\n" (map #(str "There is " % " here.\n")
+       (str/join (map #(str "There is " % " here.\n")
                            @(:items @player/*current-room*)))))
 
 
