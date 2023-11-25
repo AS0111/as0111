@@ -58,7 +58,6 @@
          
          (if (rooms/room-contains? @player/*current-room* :ring)
              (do
-               (swordatt)
                (player/game-logic config)))
          (look)
          )
