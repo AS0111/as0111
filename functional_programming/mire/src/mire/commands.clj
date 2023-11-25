@@ -108,7 +108,7 @@
 (defn attack []
   (dosync
    (if (rooms/room-contains? @player/*current-room* :ring)
-      (do (
+      (dosync (
          (if (player/carrying? :sword)
             (do (player/game-logic config)))
          (str "You dead"))))
