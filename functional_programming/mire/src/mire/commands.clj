@@ -19,14 +19,6 @@
        (str/join (map #(str "There is " % " here.\n")
                            @(:items @player/*current-room*)))))
 
-(defn attack-spirit []
-  (let [hall-room (@rooms/rooms :hall)
-        spirit-character player/spirit]
-    (dosync
-      (alter player/*current-room* (constantly hall-room))
-      (alter player/*inventory* conj spirit-character)
-      (alter (:inhabitants hall-room) conj (:name spirit-character)))
-    (str "The spirit decides to attack!\n")))
 
 (defn swordatt
   "If you have the sword, you can attack spirit."
@@ -113,6 +105,15 @@
         (println player/prompt)))
     (str "You said " message)))
 
+(defn attack []
+   (if (rooms/room-contains? @player/*current-room* :ring)
+             (do
+               (if (player/carrying? :sword)
+                 (do(player/game-logic config)))
+               "You dead"))
+    "No spirit")
+    
+
 (defn help
   "Show available commands and what they do."
   []
@@ -133,6 +134,7 @@
                "detect" detect
                "look" look
                "say" say
+               "attack" attack
                "help" help})
 
 ;; Command handling
