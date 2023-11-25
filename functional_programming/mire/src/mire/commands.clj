@@ -40,10 +40,8 @@
          
 
 
-         (if (rooms/room-contains? @player/*current-room* :spirit)
-             (do 
-      
-             (player/game-logic config)))
+         (if (rooms/room-contains? @player/*current-room* :ring)
+             (do (player/game-logic config)))
 
          
          
