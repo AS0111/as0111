@@ -39,7 +39,7 @@
          (ref-set player/*current-room* target)
          
 
-         (attack-spirit [])
+         
          (player/game-logic config)
          
 
@@ -117,6 +117,7 @@
                "detect" detect
                "look" look
                "say" say
+               "sword" sword
                "help" help})
 
 ;; Command handling
@@ -142,11 +143,10 @@
 
 
 
-;;(defn sword-att
-;;  "If you have the sword, you can attack spirit."
-;;  [item]
-;;  (if (@player/*inventory* :sword)
-;;    (let [player/*att*(+ player/*att* 240)]
-;;    "+ 240 att"
-;;    )
-;;    "You need to be carrying the sword for that."))
+(defn sword
+  "If you have the sword, you can attack spirit."
+  [item]
+  (if (@player/*inventory* :sword)
+    (let [player/*att*(+ player/*att* 240)]
+    "+ 240 att"
+    )))
