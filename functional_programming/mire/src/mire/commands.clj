@@ -39,10 +39,7 @@
          (ref-set player/*current-room* target)
          
 
-         (if-let [room (first (filter #((:spirit %) (keyword :ghost))
-                                 (vals @player/*current-room*)))]
-      
-             (player/game-logic config))
+         
          
 
          
