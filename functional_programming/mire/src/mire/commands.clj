@@ -131,7 +131,7 @@
          "You can't do that!")))
 
 
-(def attack-spirit []
+(defn attack-spirit []
   (let [hall-room (@rooms/rooms :hall)
         spirit-character player/spirit]
     (dosync
