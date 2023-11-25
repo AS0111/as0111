@@ -111,7 +111,7 @@
       (do (
          (if (player/carrying? :sword)
             (do (player/game-logic config)))
-         "You dead")))
+         (str "You dead"))))
    "No spirit"))
     
 
