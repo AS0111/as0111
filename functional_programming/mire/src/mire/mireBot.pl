@@ -73,8 +73,7 @@ loop(Stream) :-
   nl,
   flush(),
   sleep(1),
-  process(Stream),
-  loop(Stream).
+  process(Stream).
 
 % Основной предикат, который устанавливает соединение, запускает обработку и затем закрывает соединение.
 main :-
