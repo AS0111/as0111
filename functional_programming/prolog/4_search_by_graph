@@ -8,20 +8,24 @@ a(worthington, penrith, 39).
 a(X, Y) :- a(X, Y, Z).
 
 join([], L, L).
-join([X|L1], L2, [X|L3]) :- join(L1, L2, L3).
+join([X|L1], L2, [X|L3]) :-
+    join(L1, L2, L3).
 
 conversion([], []).
-conversion([H|T], L) :- conversion(T, Z), join(Z, [H], L).
 
-nexthost(X, Been, Y, Dist, NewDist) :- (a(X, Y, Z); a(Y, X, Z)), not(member(Y, Been)), NewDist is Dist+Z.
+conversion([H|T], L) :- 
+    conversion(T, Z), 
+    join(Z, [H], L).
 
-shorter(r(M1,_),r(M2,_) :- M1 < M2.
-shortest([Way|End], Way, End).
-shortest([Way[Ways], Short, [WayUst]) :- shortest(Ways, Short, End), shorter(Short, Way),!.
 
-transition(Start, Goal, Way) :- transition1([r(0,[Start])], Goal, R), conversion(R, Way).
-transition1(Ways, Goal, Way) :- shortest(Ways, Short, EndWay), extend(Short, Goal, EndWay, Way).
+transition(Start, Goal, Way) :-
+    transition0(Start, Goal, [], R),
+    conversion(R, Way).
 
-extend(r(Dist, Way), Goal, _, Way) :- Way = [Goal|_].
-extend(r(Dist, [K|Been]), Goal, Ways, Way) :- find_all(r(D1,[Z,K|Been]), nexthost(K, Been, Z, Dist, D1), List),
-      join(list, Ways, NewWays), transition1(NewWays, Goal, Ways).
+transition0(X, X, T, [X|T]).
+transition0(Place, Y, T, R) :-
+    nexthost(Place, T, Neighbour),
+    transition0(Neighbour, Y, [Place|T], R).
+nexthost(X, Been, Y) :-
+    (a(X, Y); a(Y, X)),
+    not(member(Y, Been)).
