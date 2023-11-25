@@ -38,15 +38,13 @@
                             (:inhabitants target))
          (ref-set player/*current-room* target)
          
-
-
+         (look)
+         
          (if (rooms/room-contains? @player/*current-room* :ring)
              (do
                (player/game-logic config)))
-
-         
-         
-         (look))
+         )
+       
        "You can't go that way."))))
 
 (defn grab
