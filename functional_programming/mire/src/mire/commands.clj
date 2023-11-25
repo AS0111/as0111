@@ -142,10 +142,4 @@
 
 
 
-(defn swordatt
-  "If you have the sword, you can attack spirit."
-  [item]
-  (if (@player/*inventory* :sword)
-    (let [player/*att*(+ player/*att* 240)]
-    "+ 240 att"
-    )))
+
