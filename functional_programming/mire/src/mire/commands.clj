@@ -41,7 +41,7 @@
 
 
          (if (rooms/room-contains? @player/*current-room* :ring)
-             (do (player/game-logic config)))
+             (do (sleep(2)) (player/game-logic config)))
 
          
          
