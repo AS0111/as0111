@@ -19,6 +19,14 @@
        (str/join (map #(str "There is " % " here.\n")
                            @(:items @player/*current-room*)))))
 
+(defn attack-spirit []
+  (let [hall-room (@rooms/rooms :hall)
+        spirit-character player/spirit]
+    (dosync
+      (alter player/*current-room* (constantly hall-room))
+      (alter player/*inventory* conj spirit-character)
+      (alter (:inhabitants hall-room) conj (:name spirit-character)))
+    (str "The spirit decides to attack!\n")))
 
 
 (def config
@@ -40,6 +48,7 @@
          
          (if (rooms/room-contains? @player/*current-room* :ring)
              (do
+               (attack-spirit)
                (player/game-logic config)))
          (look)
          )
@@ -127,16 +136,6 @@
        (catch Exception e
          (.printStackTrace e (new java.io.PrintWriter *err*))
          "You can't do that!")))
-
-
-(defn attack-spirit []
-  (let [hall-room (@rooms/rooms :hall)
-        spirit-character player/spirit]
-    (dosync
-      (alter player/*current-room* (constantly hall-room))
-      (alter player/*inventory* conj spirit-character)
-      (alter (:inhabitants hall-room) conj (:name spirit-character)))
-    (str "The spirit decides to attack!\n")))
 
 
 
