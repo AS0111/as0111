@@ -38,11 +38,10 @@
                             (:inhabitants target))
          (ref-set player/*current-room* target)
          
+
          
-         (if (player/*current-room* :closet)
-           (do
-             (player/game-logic config)))
-         (attack-spirit)
+         (player/game-logic config)
+         
 
          
          
