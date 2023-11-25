@@ -117,7 +117,6 @@
                "detect" detect
                "look" look
                "say" say
-               "swordatt" swordatt
                "help" help})
 
 ;; Command handling
