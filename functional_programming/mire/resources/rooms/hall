@@ -1,5 +1,5 @@
-{:desc "Moonlight shines through the curtained windows of the spacious room.
-In the far corner you notice a slight flicker framing the silhouette..."
+{:desc "Лунный свет пробивается сквозь зашторенные окна просторной комнаты. 
+        В дальнем углу вы замечаете лёгкое мерцание, обрамляющее силуэт..."
  :exits {:west :promenade :east :closet}
  :items #{:ring}
  :ghost :spirit}
