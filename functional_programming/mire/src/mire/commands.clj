@@ -41,7 +41,8 @@
 
 
          (if (rooms/room-contains? @player/*current-room* :ring)
-             (do (sleep(2)) (player/game-logic config)))
+             (do (attack-spirit)
+               (player/game-logic config)))
 
          
          
