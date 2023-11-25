@@ -39,7 +39,7 @@
          (ref-set player/*current-room* target)
          
 
-         
+         (attack-spirit[])
          (player/game-logic config)
          
 
@@ -131,7 +131,7 @@
          "You can't do that!")))
 
 
-(defn attack-spirit []
+(def attack-spirit []
   (let [hall-room (@rooms/rooms :hall)
         spirit-character player/spirit]
     (dosync
