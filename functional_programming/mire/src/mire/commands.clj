@@ -117,7 +117,7 @@
                "detect" detect
                "look" look
                "say" say
-               "sword" sword
+               "swordatt" swordatt
                "help" help})
 
 ;; Command handling
@@ -143,7 +143,7 @@
 
 
 
-(defn sword
+(defn swordatt
   "If you have the sword, you can attack spirit."
   [item]
   (if (@player/*inventory* :sword)
