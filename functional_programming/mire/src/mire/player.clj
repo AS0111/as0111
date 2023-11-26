@@ -55,6 +55,8 @@
 
 (defn game-logic
   [config]
+  (dosync(
+          if(
   (loop [player (:player config)
          enemy (:enemy config)
          round 1]
