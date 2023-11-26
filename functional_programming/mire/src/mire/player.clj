@@ -60,7 +60,7 @@
   [config]
   (dosync(
     (if (carrying? :sword)
-        (update-in :player [:att] #(+ 230)))
+        (update-in :player [:att] (240)))
     (loop [player (:player config)
          enemy (:enemy config)
          round 1]
