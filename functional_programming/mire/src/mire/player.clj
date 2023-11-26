@@ -58,21 +58,19 @@
 
 (defn game-logic
   [config]
-  (dosync(
     (loop [player (:player config)
          enemy (:enemy config)
          round 1]
-    (do (
-      (if (carrying? :sword)
-        (update-in :player [:att] #(= % 240)))
       (if (or (<= (:hp player) 0)
             (<= (:hp enemy) 0))
         (print-winner (:hp player) (:hp enemy))
+        (if (carrying? :sword)
+          (update-in :player [:att] #(= % 240)))
         (let [pl->en (take-damage player enemy)
             en->pl (take-damage enemy player)]
           (do (print-attack-log (pl->en 0) (pl->en 1))
             (print-attack-log (en->pl 0) (en->pl 1))
-            (recur (en->pl 1) (pl->en 1) (inc round)))))))))))
+            (recur (en->pl 1) (pl->en 1) (inc round)))))))
 
 (def prompt "> ")
 (def streams (ref {}))
