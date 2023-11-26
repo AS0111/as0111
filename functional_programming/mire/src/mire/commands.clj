@@ -36,9 +36,9 @@
                             (:inhabitants target))
          (ref-set player/*current-room* target)
          
-         (if (rooms/room-contains? @player/*current-room* :ring)
-             (do
-               (player/game-logic config)))
+;;         (if (rooms/room-contains? @player/*current-room* :ring)
+;;             (do
+;;               (player/game-logic config)))
          (look)
          )
        
@@ -100,7 +100,7 @@
       (do (
          (if(player/carrying? :sword)
             (do ((player/game-logic config)))
-          (str "You dead."))))
+          )))
    "No spirit")))
     
 
