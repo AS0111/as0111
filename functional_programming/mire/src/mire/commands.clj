@@ -100,7 +100,7 @@
       (dosync (
          (if (player/carrying? :sword)
             (do (player/game-logic config))
-         (str "You dead"))))
+         "You dead")))
    "No spirit")))
     
 
