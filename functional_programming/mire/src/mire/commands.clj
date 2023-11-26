@@ -98,9 +98,9 @@
   (dosync
    (if (rooms/room-contains? @player/*current-room* :ring)
       (do (
-         (if (player/carrying? :sword)
-            (do (player/game-logic config))
-         "You dead")))
+         (if-let (player/carrying? :sword)
+            (player/game-logic config)
+            (str "You dead."))))
    "No spirit")))
     
 
