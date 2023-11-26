@@ -19,18 +19,6 @@
        (str/join (map #(str "There is " % " here.\n")
                            @(:items @player/*current-room*)))))
 
-
-(defn swordatt
-  "If you have the sword, you can attack spirit."
-  []
-  (if (@player/*inventory* :sword)
-    (let [
-  ;;player/*att*(+ player/*att* 240)
-          ]
-    "+ 240 att"
-    )))
-
-
 (def config
   {:player player/player
    :enemy player/spirit})
@@ -105,14 +93,15 @@
         (println player/prompt)))
     (str "You said " message)))
 
+
 (defn attack []
   (dosync
    (if (rooms/room-contains? @player/*current-room* :ring)
       (dosync (
          (if (player/carrying? :sword)
-            (do (player/game-logic config)))
+            (do (player/game-logic config))
          (str "You dead"))))
-   "No spirit"))
+   "No spirit")))
     
 
 (defn help
