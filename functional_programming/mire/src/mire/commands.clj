@@ -97,10 +97,7 @@
 (defn attack []
   (dosync
    (if (rooms/room-contains? @player/*current-room* :ring)
-      (do (
-         (if(player/carrying? :sword)
-            (do ((player/game-logic config)))
-          )))
+      (do ((player/game-logic config)))
    "No spirit")))
     
 
