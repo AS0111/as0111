@@ -1,6 +1,6 @@
 {:desc "
-Лунный свет пробивается сквозь зашторенные окна просторной комнаты. 
-В дальнем углу вы замечаете лёгкое мерцание, обрамляющее силуэт...
+Moonlight shines through the curtained windows of the spacious room. 
+In the far corner you notice a slight flicker framing the silhouette...
 "
  :exits {:west :promenade :east :closet}
  :items #{:ring}
