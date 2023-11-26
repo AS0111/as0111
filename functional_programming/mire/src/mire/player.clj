@@ -53,9 +53,6 @@
     (println "Spirit win")
     (println "You win!(lvl+1)")))
 
-(defn carrying? [thing]
-  (some #{(keyword thing)} @*inventory*))
-
 (defn game-logic
   [config]
     (loop [player (:player config)
@@ -73,5 +70,6 @@
 (def prompt "> ")
 (def streams (ref {}))
 
-
+(defn carrying? [thing]
+  (some #{(keyword thing)} @*inventory*))
 
