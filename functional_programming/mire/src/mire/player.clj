@@ -38,7 +38,7 @@
 
 (def log-template
   " %s received %d damage.
-  his hp = %d")
+  %s hp = %d")
 
 (defn print-attack-log
   [damage character]
