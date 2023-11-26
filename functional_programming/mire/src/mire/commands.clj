@@ -97,7 +97,7 @@
 (defn attack []
   (dosync
    (if (rooms/room-contains? @player/*current-room* :ring)
-      (do ((player/game-logic config)))
+      (do (player/game-logic config))
    "No spirit")))
     
 
