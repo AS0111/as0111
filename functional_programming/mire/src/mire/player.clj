@@ -65,7 +65,7 @@
             (<= (:hp enemy) 0))
       (print-winner (:hp player) (:hp enemy))
       (do (
-        (if (carring? :sword)
+        (if (carrying? :sword)
           (update-in :player [:att] #(+ % 240)))
         (let [pl->en (take-damage player enemy)
               en->pl (take-damage enemy player)]
