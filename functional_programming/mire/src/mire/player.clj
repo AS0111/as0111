@@ -53,11 +53,14 @@
     (println "Spirit win")
     (println "You win!(lvl+1)")))
 
+(defn carrying? [thing]
+  (some #{(keyword thing)} @*inventory*))
+
 (defn game-logic
   [config]
   (dosync(
     (if(carrying? :sword)
-        update-in :player [:att] #(+ 230))
+        (update-in :player [:att] #(+ 230)))
     (loop [player (:player config)
          enemy (:enemy config)
          round 1]
@@ -73,6 +76,5 @@
 (def prompt "> ")
 (def streams (ref {}))
 
-(defn carrying? [thing]
-  (some #{(keyword thing)} @*inventory*))
+
 
