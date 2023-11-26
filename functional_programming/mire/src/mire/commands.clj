@@ -36,9 +36,9 @@
                             (:inhabitants target))
          (ref-set player/*current-room* target)
          
-;;         (if (rooms/room-contains? @player/*current-room* :ring)
-;;             (do
-;;               (player/game-logic config)))
+         (if (rooms/room-contains? @player/*current-room* :ring)
+             (do
+               (player/game-logic config)))
          (look)
          )
        
@@ -95,10 +95,9 @@
 
 
 (defn attack []
-  (dosync
    (if (rooms/room-contains? @player/*current-room* :ring)
       (do (player/game-logic config))
-   "No spirit")))
+   "No spirit"))
     
 
 (defn help
