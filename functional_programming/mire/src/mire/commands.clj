@@ -98,7 +98,7 @@
    (if (rooms/room-contains? @player/*current-room* :ring)
       (do 
         (if (@player/*inventory* :sword)
-          (player/game-logic config)
+            (player/game-logic config)
           "Spirit win"))
    "No spirit"))
     
