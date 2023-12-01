@@ -32,7 +32,6 @@
 (defn take-damage-win
   [from to]
   (let [rd (:att from)]
-    [rd (update-in from [:att] #(+ % 240))]
     [rd (update-in to [:hp] #(- % rd))]))
 
 (def player (create-character "you" 1))
@@ -82,7 +81,8 @@
     (if (or (<= (:hp player) 0)
             (<= (:hp enemy) 0))
       (print-winner (:hp player) (:hp enemy))
-        (let [pl->en (take-damage-win player enemy)
+        (let [update-in player [:att] #(+ % 240)] 
+          [pl->en (take-damage-win player enemy)
               en->pl (take-damage-win enemy player)]
           (do (print-attack-log (pl->en 0) (pl->en 1))
               (print-attack-log (en->pl 0) (en->pl 1))
