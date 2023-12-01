@@ -5,11 +5,13 @@ https://github.com/AS0111/as0111/edit/main/functional_programming/clojure_koans
 https://github.com/AS0111/as0111/edit/main/functional_programming/prolog
 
 # 3. Mire
-Задачи:
-1) Добавить функционал
-2) Написать бота на логическом ЯП Prolog для имитации игрока
+Это ненасильственное МПП. (Многопользовательское подземелье)
 
-Реализация дополнительного функционала:
+### Задачи:
+1) Добавить функционал;
+2) Написать бота на логическом ЯП Prolog для имитации игрока.
+
+### Реализация дополнительного функционала:
 
 
    !(/mire/src/img/mire.png)
@@ -28,10 +30,20 @@ In the far corner you notice a slight flicker framing the silhouette..."</p>
 
 https://github.com/AS0111/as0111/edit/main/functional_programming/mire
 
-# Исполнитель
+## Запуск
 
+Сначала убедитесь, что на вашем компьютере установлена `java`
+. [OpenJDK](https://adoptopenjdk.net ) рекомендуется. Это должна
+быть как минимум версия 8, но более новые версии (протестированные до 17) тоже должны работать.
 
-Слесаренко А., 4ИТ/2
+Выполните команду "lein run" внутри каталога Mire, чтобы запустить сервер Mire
+. Затем игроки могут подключиться по telnet к порту 3332.
+
+# Исполнители
+
+1. Слесаренко Анастасия
+2. Филатов Артём
+3. Тельнов Дмитрий
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Computer+science+student)](https://git.io/typing-svg)
 
