@@ -33,7 +33,7 @@
   [from to]
   (do (update-in from [:att] #(+ % 240))
     (let [rd (:att from)]
-      [rd (update-in to [:hp] #(- % rd))]))
+      [rd (update-in to [:hp] #(- % rd))])))
 
 (def player (create-character "you" 1))
 (def spirit (create-character "spirit" 5))
