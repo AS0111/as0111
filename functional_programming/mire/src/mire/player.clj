@@ -81,8 +81,8 @@
     (if (or (<= (:hp player) 0)
             (<= (:hp enemy) 0))
       (print-winner (:hp player) (:hp enemy))
-        (let [+ ((:att player) (240))] 
-          [pl->en (take-damage-win player enemy)
+        (let [(+ ((:att player) (240)))
+          pl->en (take-damage-win player enemy)
               en->pl (take-damage-win enemy player)]
           (do (print-attack-log (pl->en 0) (pl->en 1))
               (print-attack-log (en->pl 0) (en->pl 1))
