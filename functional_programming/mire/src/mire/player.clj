@@ -31,8 +31,9 @@
 
 (defn take-damage-win
   [from to]
-  (let [rd (:att from)]
-    [rd (update-in to [:hp] #(- % 500))]))
+  (do (update-in from [:att] #(+ % 240))
+    (let [rd (:att from)]
+      [rd (update-in to [:hp] #(- % rd))]))
 
 (def player (create-character "you" 1))
 (def spirit (create-character "spirit" 5))
