@@ -29,7 +29,10 @@
   (let [rd (:att from)]
     [rd (update-in to [:hp] #(- % rd))]))
 
-
+(defn take-damage-win
+  [from to]
+  (let [rd (:att from)]
+    [rd (update-in to [:hp] #(- % 500))]))
 
 (def player (create-character "you" 1))
 (def spirit (create-character "spirit" 5))
@@ -66,6 +69,20 @@
       (print-winner (:hp player) (:hp enemy))
         (let [pl->en (take-damage player enemy)
               en->pl (take-damage enemy player)]
+          (do (print-attack-log (pl->en 0) (pl->en 1))
+              (print-attack-log (en->pl 0) (en->pl 1))
+              (recur (en->pl 1) (pl->en 1) (inc round)))))))
+
+(defn game-logic-win
+  [config]
+  (loop [player (:player config)
+         enemy (:enemy config)
+         round 1]
+    (if (or (<= (:hp player) 0)
+            (<= (:hp enemy) 0))
+      (print-winner (:hp player) (:hp enemy))
+        (let [pl->en (take-damage-win player enemy)
+              en->pl (take-damage-win enemy player)]
           (do (print-attack-log (pl->en 0) (pl->en 1))
               (print-attack-log (en->pl 0) (en->pl 1))
               (recur (en->pl 1) (pl->en 1) (inc round)))))))
