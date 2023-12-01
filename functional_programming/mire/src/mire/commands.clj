@@ -37,8 +37,10 @@
          (ref-set player/*current-room* target)
          
          (if (rooms/room-contains? @player/*current-room* :ring)
-             (do
-               (player/game-logic config)))
+          (do 
+            (if (@player/*inventory* :sword)
+              (player/game-logic config))))
+         
          (look)
          )
        
