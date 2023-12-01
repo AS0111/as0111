@@ -53,6 +53,8 @@ In the far corner you notice a slight flicker framing the silhouette..."</p>
 
 https://github.com/AS0111/as0111/edit/main/functional_programming/mire
 
+## Сюжет
+
 
 ## Исполнители
 
