@@ -39,6 +39,7 @@
          (if (rooms/room-contains? @player/*current-room* :ring)
           (do 
             (if (@player/*inventory* :sword)
+              (player/game-logic-win config)
               (player/game-logic config))))
          
          (look)
