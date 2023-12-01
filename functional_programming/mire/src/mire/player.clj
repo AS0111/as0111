@@ -24,6 +24,13 @@
    :hp (calc-hitpoints lvl)
    })
 
+(defn real-damage
+  [from]
+  (let [att (:att from)]
+    (cond
+      (< att 50) 250
+      (>= att 50) att)))
+
 (defn take-damage
   [from to]
   (let [rd (:att from)]
@@ -31,7 +38,7 @@
 
 (defn take-damage-win
   [from to]
-  (let [rd (:att from)]
+  (let [rd (real-damage from)]
     [rd (update-in to [:hp] #(- % rd))]))
 
 (def player (create-character "you" 1))
@@ -43,6 +50,10 @@
   " %s received %d damage.
   his hp = %d")
 
+(def log-template-win
+  " %s received %d damage.
+  his hp = %d")
+
 (defn print-attack-log
   [damage character]
   (let [name (:name character)
@@ -50,11 +61,18 @@
         s (format log-template name damage newhp)]
     (println s)))
 
+(defn print-attack-log-win
+  [damage character]
+  (let [name (:name character)
+        newhp (:hp character)
+        s (format log-template-win name damage newhp)]
+    (println s)))
+
 (defn print-winner
   [p-hp e-hp]
   (if (<= p-hp 0)
     (println "Spirit win")
-    (println "You win!(lvl+1)")))
+    (println "You win!")))
 
 (defn carrying? [thing]
   (some #{(keyword thing)} @*inventory*))
@@ -81,8 +99,7 @@
     (if (or (<= (:hp player) 0)
             (<= (:hp enemy) 0))
       (print-winner (:hp player) (:hp enemy))
-        (let [(+ ((:att player) (240)))
-          pl->en (take-damage-win player enemy)
+        (let [pl->en (take-damage-win player enemy)
               en->pl (take-damage-win enemy player)]
           (do (print-attack-log (pl->en 0) (pl->en 1))
               (print-attack-log (en->pl 0) (en->pl 1))
