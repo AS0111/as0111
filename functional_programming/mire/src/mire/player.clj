@@ -70,9 +70,11 @@
 
 (defn print-winner
   [p-hp e-hp]
-  (if (<= p-hp 0)
-    (println "Spirit win")
-    (println "You win!")))
+  (if (<= e-hp 0)
+    (println "
+             You win!")
+    (println "
+             Spirit win")))
 
 (defn carrying? [thing]
   (some #{(keyword thing)} @*inventory*))
