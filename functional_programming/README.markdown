@@ -52,11 +52,11 @@ In the far corner you notice a slight flicker framing the silhouette..."</p>
 4) В комнате Hall находится призрак. Реализовано автоматическое сражение с ним, победа в котором зависит от наличия меча у игрока:
       
 (defn game-logic 
- 
+  
   [config] 
   
   (loop [player (:player config)
-     
+
          enemy (:enemy config) 
      
          round 1]
@@ -76,6 +76,8 @@ In the far corner you notice a slight flicker framing the silhouette..."</p>
               (print-attack-log (en->pl 0) (en->pl 1))
              
               (recur (en->pl 1) (pl->en 1) (inc round)))))))
+
+При в ходе в комнату игрок встечается с призраком, вне зависимости от того, был ли дух побежден ранее.
 
 5) Написан бот на языке логического программирования Prolog. Бот имитирует игрока, 
 который движется по кратчайшему пути от старта до победы в игре.
