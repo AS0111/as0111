@@ -15,8 +15,8 @@ https://github.com/AS0111/as0111/edit/main/functional_programming/prolog
 4) Выполните команду "lein run" внутри каталога Mire, чтобы запустить сервер Mire. Затем игроки могут подключиться по telnet к порту 3332.
 
 5) Для запуска бота необходимо установить приложение SWI-Prolog.
-6) Выполните команду "swipl", чтобы запустить SWI-Prolog.
-7) Используйте "emacs." для открытия графического интерфейса.
+6) Выполните команду `swipl`, чтобы запустить SWI-Prolog.
+7) Используйте `emacs.` для открытия графического интерфейса.
 8) Откройте файл с кодом бота, используя File -> Open -> mireBot.pl -> Ok.
 9) Скомпилируйте код с помощью Compile -> Consult selection
 10) Выполните `main.`
@@ -50,10 +50,10 @@ In the far corner you notice a slight flicker framing the silhouette..."</p>
 
 
 
-
-https://github.com/AS0111/as0111/edit/main/functional_programming/mire
+Полный код доступен по ссылке: https://github.com/AS0111/as0111/edit/main/functional_programming/mire
 
 ## Сюжет
+
 
 
 ## Исполнители
