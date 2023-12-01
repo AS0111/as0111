@@ -24,7 +24,7 @@ exits([Exit|Exits]) --> e(Exit), exits(Exits).
 parse_exits(Exits) --> [exits], exits(Exits).
 
 % Предикат для разбора токенов, содержащих информацию о выходах.
-parse(Tokens) :- phrase(parse_exits(Exits), Tokens, Rest), retractall(exit(_)), assert(exit(Exits)).
+parse(Tokens) :- phrase(parse_exits(Exits), Tokens, _Rest), retractall(exit(_)), assert(exit(Exits)).
 parse(_).
 
 % Фильтрация входного списка кодов, удаляются определенные символы и происходит приведение к нижнему регистру.
@@ -38,23 +38,24 @@ filter_codes([H|T1], [F|T2]) :-
   filter_codes(T1, T2).
 
 % Инициализация пути.
-% :- retractall(path(_)), assert(path([north, north, west, north, south, west, west, north, north])).
-:- retractall(path(_)), assert(path([north, east, south, south, west, north|_])).
+:- retractall(path(_)), assert(path([south,east,east])).
 
 % Обработка потока данных: считывание направления, формирование команды и отправка ее обратно в поток.
 process(Stream) :-
   path([Direction|Rest]),
-  format(atom(Command), 'move ~w~n', [Direction]),
+  format(atom(Command), '~w~n', [Direction]),
   write(Command),
   write(Stream, Command),
   flush_output(Stream),
   retractall(path(_)),
-  (Rest == [] -> write(Stream, 'grab keys\n'), flush_output(Stream); assert(path(Rest))).
+  write(Stream, 'grab sword\n'),
+  (Rest == [] -> write(Stream, 'grab ring\n'), flush_output(Stream); assert(path(Rest))).
 process(_).
 
 % Отправка приветственного сообщения в поток при подключении.
 hello(Stream) :-
-  writeln(Stream, 'bot'),
+  write(Stream, '\n'),
+  write(Stream, 'bot\n'),
   flush_output(Stream).
 
 % Запуск основного цикла обработки.
@@ -73,7 +74,8 @@ loop(Stream) :-
   nl,
   flush(),
   sleep(1),
-  process(Stream).
+  process(Stream),
+  loop(Stream).
 
 % Основной предикат, который устанавливает соединение, запускает обработку и затем закрывает соединение.
 main :-
