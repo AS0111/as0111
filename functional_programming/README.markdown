@@ -39,14 +39,15 @@ https://github.com/AS0111/as0111/edit/main/functional_programming/prolog
    !(/mire/src/img/mire.png)
 
 
-1) Добавлена комната hall и ее описание
+1) Добавлена комната Hall:
 <p align="center">
    <p>"Moonlight shines through the curtained windows of the spacious room.
 In the far corner you notice a slight flicker framing the silhouette..."</p>
    <p>"Лунный свет пробивается сквозь зашторенные окна просторной комнаты.
 В дальнем углу вы замечаете лёгкое мерцание, обрамляющее силуэт..."</p>
 </p>
-
+2) Изменено описание некоторых других комнат, а также добавлены предметы: меч в Promenade и кольцо в Hall.
+3) В комнате Hall находится призрак. Реализовано сражение с ним, победа в котором зависит от наличия меча у игрока:
 
 
 
