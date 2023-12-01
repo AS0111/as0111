@@ -96,9 +96,9 @@
   (loop [player (:player config)
          enemy (:enemy config)
          round 1]
-    (if (or (<= (:hp player) 0)
-            (<= (:hp enemy) 0))
-      (print-winner (:hp player) (:hp enemy))
+    (if (or (<= (:hp enemy) 0)
+            (<= (:hp player) 0))
+      (print-winner (:hp enemy) (:hp player))
         (let [pl->en (take-damage-win player enemy)
               en->pl (take-damage-win enemy player)]
           (do (print-attack-log (pl->en 0) (pl->en 1))
