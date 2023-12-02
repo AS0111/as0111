@@ -35,8 +35,7 @@ https://github.com/AS0111/as0111/edit/main/functional_programming/prolog
 
 ### Реализация дополнительного функционала:
 
-
-   !(/mire/src/img/mire.png)
+![image](/mire/src/img/mire.png)
 
 1) Добавлены характеристики персонажа игрока: lvl, att (attack), def (defence), hp (hitpoints).
 2) Добавлена комната Hall:
