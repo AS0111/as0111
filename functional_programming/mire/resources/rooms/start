@@ -1,9 +1,12 @@
 {:desc "
 You find yourself in a round room with a pillar in the middle. 
+You notice a letter in your hand:
 
 Dear friend, you don’t remember me, but our destinies are closely intertwined. 
 The world that you knew has become different, it has plunged into darkness, and only with your help can we save it. 
 You must find a ring, protected by a ghost, that will light your path forward. 
 However, first find a sword, because only with it can you defeat anyone who gets in your way.
+
+The letter suddenly bursts into flames and burns out before you can read it.
 "
  :exits {:north :closet :south :hallway}}
