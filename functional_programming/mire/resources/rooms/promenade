@@ -1,6 +1,5 @@
 {:desc "
-A small room, embroidered with red velvet, with a lot of equipment for interesting games. 
-Admission is for adults only. The embankment stretches behind it.
+Bright room with a large chest. You can hear the sound of the sea outside the window.
 "
  :exits {:west :hallway :east :hall}
  :items #{:bunny :turtle :sword}}
