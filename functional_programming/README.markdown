@@ -44,9 +44,9 @@ https://github.com/AS0111/as0111/edit/main/functional_programming/prolog
 
 <p align="center">
    <p>"Moonlight shines through the curtained windows of the spacious room.
-In the far corner you notice a slight flicker framing the silhouette..."</p>
+In the far corner you notice a bright reflection... It's a ring!"</p>
    <p>"Лунный свет пробивается сквозь зашторенные окна просторной комнаты.
-В дальнем углу вы замечаете лёгкое мерцание, обрамляющее силуэт..."</p>
+В дальнем углу вы замечаете яркий отблеск... Это кольцо!"</p>
 </p>
 
 3) Изменено описание некоторых других комнат, а также добавлены предметы: меч в Promenade и кольцо в Hall.
