@@ -1,5 +1,6 @@
 {:desc "
-The promenade stretches out before you.
+A small room, embroidered with red velvet, with a lot of equipment for interesting games. 
+Admission is for adults only. The embankment stretches behind it.
 "
  :exits {:west :hallway :east :hall}
  :items #{:bunny :turtle :sword}}
