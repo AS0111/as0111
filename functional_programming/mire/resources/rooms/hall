@@ -1,6 +1,6 @@
 {:desc "
 Moonlight shines through the curtained windows of the spacious room. 
-In the depths of the room you notice a glimmer of moonlight. This is the ring
+In the far corner you notice a bright reflection... It's a ring!
 "
  :exits {:west :promenade :east :closet}
  :items #{:ring}
