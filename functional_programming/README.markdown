@@ -87,9 +87,7 @@ In the far corner you notice a bright reflection... It's a ring!"</p>
 
 ## Сюжет
 
-![video](./mire/src/img/рикардо.mp4)
-
-<video width="320" height="240" controls>
+<video autosize: true>
   <source src="./mire/src/img/рикардо.mp4" type="video/mp4">
 </video>
 
