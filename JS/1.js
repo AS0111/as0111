@@ -24,6 +24,6 @@ submit.addEventListener('click', () => {
 
   const userId='User' + createId(users);
   users[userId]=user;
-  concole.log(users);
+  console.log(users);
 
 })
