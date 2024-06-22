@@ -15,7 +15,7 @@ function createId(users){
   return Object.keys(users).length;
 }
 
-submit.addEventListener('click', () -> {
+submit.addEventListener('click', () => {
   const nameUser=name.value;
   const loginUser=login.value;
   const passwordUser=password.value;
